@@ -1,7 +1,9 @@
 from django.conf.urls import include,url
 from . import views
 from demo import views
+from demo.views import userlogin
 
 urlpatterns = [
-    url(r'^$/', demo.views.userlogin, name='userlogin'),
+    url(r'^$', views.userlogin.userlogin , name='userlogin'),
+
 ]
