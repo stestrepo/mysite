@@ -1,10 +1,8 @@
 from django.conf.urls import include,url
-
 from demo import views
 from . import views
 
-app_name = 'demo_cc'
-
+app_name = 'doodle_cc'
 
 urlpatterns = [
     url(r'^ls/', views.index, name='index'),
@@ -13,11 +11,6 @@ urlpatterns = [
     # (r'^data[\/]?', include('gnowsys_ndf.ndf.urls.adminDashboard')),
     # url(r'^sec',views.second, name='second'),
     # url(r'^$/', include('demo.urls')),
-
-
-
-
-
 
     # ex: /polls/
     # url(r'^$', views.index, name='index'),
@@ -34,6 +27,4 @@ urlpatterns = [
     
     url(r'^userlogin/', include('demo.urls.userlogin')),
 ]
-
-
 # call as "polls:index"

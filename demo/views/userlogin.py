@@ -34,3 +34,10 @@ def login(request):
 	}
     return HttpResponse(template.render(context, request))
 
+def login_user(request):
+    print request
+    print request.method
+    print request.POST['username']
+    print request.POST['password']
+    # print request[]
+    return HttpResponse("Hello, login_user")
