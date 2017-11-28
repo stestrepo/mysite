@@ -28,10 +28,34 @@ def second(request):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def login(request):
     template = loader.get_template('demo/login_page.html')
     context = {
-	}
+    }
     return HttpResponse(template.render(context, request))
 
 def login_user(request):
@@ -40,4 +64,9 @@ def login_user(request):
     print request.POST['username']
     print request.POST['password']
     # print request[]
-    return HttpResponse("Hello, login_user")
+    # return HttpResponse("Hello, login_user")
+    # return HttpResponse("Hello, login_user")
+    template = loader.get_template('demo/dashboard.html')
+    context = {
+    }
+    return HttpResponse(template.render(context, request))
