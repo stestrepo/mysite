@@ -1,36 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" /> 
         <title>{% block title %} Planner App | CCCF | TIFR {% endblock %}  </title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <meta content="Preview page of Metronic Admin Theme #4 for statistics, charts, recent events and reports" name="description" />
-        <meta content="" name="author" />
-        <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-        <link href="../../../static/demo/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <link href="../../../static/demo/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
-        <link href="../../../static/demo/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="../../../static/demo/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
-        <!-- END GLOBAL MANDATORY STYLES -->
-        <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <link href="../../../static/demo/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
-        <link href="../../../static/demo/assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
-        <link href="../../../static/demo/assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
-        <link href="../../../static/demo/assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
-        <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="../../../static/demo/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="../../../static/demo/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="../../../static/demo/assets/layouts/layout4/css/layout.min.css" rel="stylesheet" type="text/css" />
-        <link href="../../../static/demo/assets/layouts/layout4/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="../../../static/demo/assets/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> </head>
-    <!-- END HEAD -->
+        {% include "demo/header.html" %}
+    </head>
 
     <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
         <!-- BEGIN HEADER -->
@@ -49,11 +22,9 @@
                 
                 <!-- BEGIN PAGE TOP -->
                 <div class="page-top">
-                    
                     <!-- BEGIN TOP NAVIGATION MENU -->
                     <div class="top-menu">
                         <ul class="nav navbar-nav pull-right">
-                            
                             <li class="dropdown dropdown-user dropdown-dark">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                     <span class="username username-hide-on-mobile"> Nick </span>
@@ -226,9 +197,11 @@
                             <a href="index.html">Home</a>
                             <i class="fa fa-circle"></i>
                         </li>
+                        {% block breadcrumb %}
                         <li>
                             <span class="active">Dashboard</span>
                         </li>
+                        {% endblock %}
                     </ul>
                     <!-- END PAGE BREADCRUMB -->
                     <!-- BEGIN PAGE BASE CONTENT -->
