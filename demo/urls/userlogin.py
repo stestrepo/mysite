@@ -8,6 +8,8 @@ urlpatterns = [
     url(r'^ls/', views.userlogin.second , name='second'),
 
     url(r'^login/', views.userlogin.login , name='login'),
-    url(r'^login_user/', views.userlogin.login_user , name='login_user'),
+    url(r'^login_user', views.userlogin.login_user , name='login_user'),
+    url(r'^invite_people_poll', views.userlogin.invite_people_poll , name='invite_people_poll'),
+    url(r'^invite_people_conf', views.userlogin.invite_people_conf , name='invite_people_conf'),
 
 ]

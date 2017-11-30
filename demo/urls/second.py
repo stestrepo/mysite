@@ -10,5 +10,5 @@ urlpatterns = [
     # url(r'^(?P<group_id>[^/]+)/meeting','gnowsys_ndf.ndf.views.meeting.dashb', name='meeting'),
     # url(r'^/create_group/', GroupCreateEditHandler.as_view(), {'action': 'create'}, name='create_group'),
 
-
+ 
 ]

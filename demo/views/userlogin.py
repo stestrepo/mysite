@@ -61,12 +61,51 @@ def login(request):
 def login_user(request):
     print request
     print request.method
-    print request.POST['username']
-    print request.POST['password']
+    print request.POST
+    print request.GET
+
+    # print request.POST['username']
+    # print request.POST['password']
+    # username = request.POST['username']
+    # password = request.POST['password']
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    print username,password
+
     # print request[]
     # return HttpResponse("Hello, login_user")
     # return HttpResponse("Hello, login_user")
+
     template = loader.get_template('demo/dashboard.html')
     context = {
+        'username':username,
+        'password':password,
     }
     return HttpResponse(template.render(context, request))
+
+
+
+def invite_people_poll(request):
+    print request
+    template = loader.get_template('demo/poll.html')
+    context = {
+        # 'username':username,
+        # 'password':password,
+        'poll':'poll34',
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def invite_people_conf(request):
+    print request
+    template = loader.get_template('demo/poll.html')
+    context = {
+        # 'username':username,
+        # 'password':password,
+        'poll':'poll12',
+    }
+    return HttpResponse(template.render(context, request))
+
+
+
+
