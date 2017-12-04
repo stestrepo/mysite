@@ -106,11 +106,18 @@ poll link.
                 <div class="row">
                     <div class="form-group">
                         <label class="control-label col-md-3">No of options <font color="red">*</font> </label>
-                        <div class="col-md-8">
-                            <input class="form-control" placeholder="Eg.2" type="text" id="options" name="options" required  >
+                        <div class="col-md-2">
+                            <input class="form-control" placeholder="Eg.2" type="text" id="options" name="options" required onkeypress="return onlyNumbers(event,this);" >
                         </div>
                     </div>
                 </div> 
+
+                            <div class="row" align="right" >
+                                <button type="submit" class="btn green" name="submit" id="submit2" value="submit" > Submit </button>
+
+                            </div>
+                        </div>
+
 
 
             </div>
