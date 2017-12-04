@@ -102,7 +102,7 @@ def invite_people_conf(request):
     context = {
         # 'username':username,
         # 'password':password,
-        'poll':'poll12',
+        'poll':'poll12', 
     }
     return HttpResponse(template.render(context, request))
 

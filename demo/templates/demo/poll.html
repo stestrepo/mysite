@@ -1,12 +1,44 @@
 {% extends "demo/base.html" %}
  
+            {% block sidebar %}
+            <div class="page-sidebar-wrapper">
+                <div class="page-sidebar navbar-collapse collapse">
+                    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start ">
+                            <a href="{% url 'doodle_cc:login_user' %}" class="nav-link nav-toggle">
+                                <i class="icon-home"></i>
+                                <span class="title"> Dashboard </span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item start active open ">
+                            <a href="{% url 'doodle_cc:invite_people_poll' %}" class="nav-link nav-toggle">
+                                <i class="icon-bar-chart"></i>
+                                <span class="title"> Create new Poll </span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item start ">
+                            <!-- <a href="{% url 'doodle_cc:second' %}" class="nav-link nav-toggle"> -->
+                            <a href="{% url 'doodle_cc:invite_people_conf' %}" class="nav-link nav-toggle">
+                                <i class="icon-bulb"></i>
+                                <span class="title"> Create new Conference </span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {% endblock %}
+
+
 {% block title %} Poll | Planner App | CCCF | TIFR {% endblock %}
 
 {% block pagetitle %} Add new poll  {% endblock %}
 
 {% block breadcrumb %}
 <li>
-    <a href="dashboard.html">Dashboard</a>
+    <a href="{% url 'doodle_cc:login_user' %}">Dashboard</a>
     <i class="fa fa-circle"></i>
 </li>
 <li>
@@ -15,6 +47,102 @@
 {% endblock %}
 
 {% block content %}
-bcdsjk
+Poll block
+
+form - poll question
+
+answer type -- choice /lock
+
+end date
+
+--- 
+
+nxt page send invites
+
+select the no of people going to participate
+
+there name , email id
+
+poll link.
+
+---
+
+
+
+<!-- <form action="{% url 'doodle_cc:login' %}" method="post"> -->
+
+<form action="{% url 'doodle_cc:login' %}" method="post" class="form-horizontal" name="acad" enctype="multipart/form-data" onSubmit="return validate()"  >
+{% csrf_token %}
+
+    <div class="portlet box green">
+        <div class="portlet-title">
+            <div class="caption"> 
+                Step 1: Poll Question
+            </div> 
+        </div>
+        <div class="portlet-body form">
+            <div class="form-body">
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Question <font color="red">*</font> </label>
+                        <div class="col-md-8">
+                            <input class="form-control" placeholder="Type the question" type="text" id="question" name="question" required  >
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3"> Type of answer choices <font color="red">*</font> </label>
+                        <div class="col-md-8">
+                        	<div class="radio-list row ">
+	                            <input type="radio" id="multi" name="ansc" value="multi" > Multiple answer choice(checkbox) 
+	                            <input type="radio" id="single" name="ansc" value="single"> Single answer choice(radio)  
+	                        </div>
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">No of options <font color="red">*</font> </label>
+                        <div class="col-md-8">
+                            <input class="form-control" placeholder="Eg.2" type="text" id="options" name="options" required  >
+                        </div>
+                    </div>
+                </div> 
+
+
+            </div>
+        </div>
+
+    </div>
+			<input type="submit" value="Next" />
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {% endblock %}
