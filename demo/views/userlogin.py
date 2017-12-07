@@ -106,6 +106,26 @@ def invite_people_conf(request):
     }
     return HttpResponse(template.render(context, request))
 
+def poll_options(request):
+    print request
+    template = loader.get_template('demo/poll.html')
+    context = {
+        # 'username':username,
+        # 'password':password,
+        'poll':'poll12', 
+    }
+    return HttpResponse(template.render(context, request))
+
+def create_group(request):
+    print request
+    template = loader.get_template('demo/group.html')
+    context = {
+        # 'username':username,
+        # 'password':password,
+        'poll':'poll12', 
+    }
+    return HttpResponse(template.render(context, request))
+
 
 
 

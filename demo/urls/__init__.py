@@ -39,3 +39,15 @@ urlpatterns = [
     url(r'^userlogin/', include('demo.urls.userlogin')),
 ]
 # call as "polls:index"
+
+
+
+
+# from mysite.views import hello, my_homepage_view
+
+# urlpatterns = [
+#     url(r'^$', my_homepage_view),
+#     # ... 
+    # ]
+
+    
