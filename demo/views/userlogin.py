@@ -98,7 +98,7 @@ def invite_people_poll(request):
 
 def invite_people_conf(request):
     print request
-    template = loader.get_template('demo/poll.html')
+    template = loader.get_template('demo/conference.html')
     context = {
         # 'username':username,
         # 'password':password,
