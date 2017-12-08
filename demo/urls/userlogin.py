@@ -5,7 +5,6 @@ from demo.views import userlogin
 
 urlpatterns = [
     url(r'^$', views.userlogin.userlogin , name='userlogin'),
-    url(r'^ls/', views.userlogin.second , name='second'),
 
     url(r'^login/', views.userlogin.login , name='login'),
     url(r'^login_user', views.userlogin.login_user , name='login_user'),

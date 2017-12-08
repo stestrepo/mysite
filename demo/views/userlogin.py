@@ -23,33 +23,6 @@ def userlogin(request):
 
     
 
-def second(request):
-    return HttpResponse("Hello, world. 2ns part.")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 def login(request):
