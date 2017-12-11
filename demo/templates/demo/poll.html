@@ -1,41 +1,41 @@
 {% extends "demo/base.html" %}
  
-            {% block sidebar %}
-            <div class="page-sidebar-wrapper">
-                <div class="page-sidebar navbar-collapse collapse">
-                    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-                        <li class="nav-item start ">
-                            <a href="{% url 'doodle_cc:login_user' %}" class="nav-link nav-toggle">
-                                <i class="icon-home"></i>
-                                <span class="title"> Dashboard </span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                        <li class="nav-item start active open ">
-                            <a href="{% url 'doodle_cc:invite_people_poll' %}" class="nav-link nav-toggle">
-                                <i class="icon-bar-chart"></i>
-                                <span class="title"> Create new Poll </span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                        <li class="nav-item start ">
-                            <a href="{% url 'doodle_cc:invite_people_conf' %}" class="nav-link nav-toggle">
-                                <i class="icon-bulb"></i>
-                                <span class="title"> Create new Conference </span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                        <li class="nav-item start ">
-                            <a href="{% url 'doodle_cc:create_group' %}" class="nav-link nav-toggle">
-                                <i class="icon-diamond"></i>
-                                <span class="title"> Create new Group </span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            {% endblock %}
+{% block sidebar %}
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+        <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+            <li class="nav-item start ">
+                <a href="{% url 'doodle_cc:login_user' %}" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title"> Dashboard </span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item start active open ">
+                <a href="{% url 'doodle_cc:invite_people_poll' %}" class="nav-link nav-toggle">
+                    <i class="icon-bar-chart"></i>
+                    <span class="title"> Create new Poll </span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item start ">
+                <a href="{% url 'doodle_cc:invite_people_conf' %}" class="nav-link nav-toggle">
+                    <i class="icon-bulb"></i>
+                    <span class="title"> Create new Conference </span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item start ">
+                <a href="{% url 'doodle_cc:create_group' %}" class="nav-link nav-toggle">
+                    <i class="icon-diamond"></i>
+                    <span class="title"> Create new Group </span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
 
 
 {% block title %} Poll | Planner App | CCCF | TIFR {% endblock %}
@@ -53,8 +53,6 @@
 {% endblock %}
 
 {% block content %}
-
-<!-- <form action="{% url 'doodle_cc:login' %}" method="post"> -->
 
 <form action="{% url 'doodle_cc:poll_options' %}" method="post" class="form-horizontal" name="acad" enctype="multipart/form-data" onSubmit="return validate()"  >
 {% csrf_token %}
