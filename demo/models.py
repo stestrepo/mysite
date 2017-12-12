@@ -21,7 +21,6 @@ class Question(models.Model):
     #     return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
 
-
         
 @python_2_unicode_compatible  # only if you need to support Python 2
 class Choice(models.Model):
@@ -32,6 +31,11 @@ class Choice(models.Model):
     def __str__(self):
         return self.choice_text
 
+@python_2_unicode_compatible  # only if you need to support Python 2
+class group(models.Model):
+    # group  file, get it as a dict/tuple file, process it to fetch each object and then validate ech object
+    def __str__(self):
+        return self.choice_text
 
 
 

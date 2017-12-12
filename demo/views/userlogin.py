@@ -59,16 +59,30 @@ def invite_people_poll(request):
 
 
 
-
 def poll_options(request):
-    print request
-    template = loader.get_template('demo/poll.html')
+    print request,request.POST,request.GET
+
+    question = request.POST.get('question')
+
+    template = loader.get_template('demo/invite.html')
     context = {
         # 'username':username,
         # 'password':password,
         'poll':'poll12', 
     }
     return HttpResponse(template.render(context, request))
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
