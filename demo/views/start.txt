@@ -1,0 +1,16 @@
+netstat -ntlp
+
+iptables -nL
+
+iptables -F
+ip6tables -F
+
+vi /etc/rc.local
+
+whereis "" 
+locate 
+.
+
+bootstrap tags:
+https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/
+http://keenthemes.com/preview/metronic/theme/admin_3/components_bootstrap_tagsinput.html

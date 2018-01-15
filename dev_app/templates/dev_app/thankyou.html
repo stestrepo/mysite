@@ -1,0 +1,54 @@
+{% extends "dev_app/base.html" %}
+
+ 
+{% block sidebar %}
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+        <ul class="page-sidebar-menu  " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+            <li class="nav-item start ">
+                <a href="" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title"> Dashboard </span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block title %} Poll | Planner App | CCCF | TIFR {% endblock %}
+
+{% block pagetitle %} Polling {% endblock %}
+
+{% block breadcrumb %}
+<li>
+    <span class="active">Poll</span>
+</li>
+{% endblock %}
+
+{% block content %}
+
+<form  class="form-horizontal" name="acad"   >
+{% csrf_token %}
+
+    <div class="portlet box green">
+        <div class="portlet-title">
+            <div class="caption"> 
+                
+            </div> 
+        </div>
+        <div class="portlet-body form">
+            <div class="form-body">
+                <div class="row" align="center">
+                    Thank you for participating in the poll. You will be  informed shortly about the results.
+                </div> 
+            </div>
+        </div>
+
+    </div>
+</form>
+
+{% endblock %}

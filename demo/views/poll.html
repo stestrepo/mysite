@@ -1,0 +1,160 @@
+{% extends "dev_app/base.html" %}
+ 
+{% block sidebar %}
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+        <ul class="page-sidebar-menu  " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+            <li class="nav-item start ">
+                <a href="{% url 'dev_app:login_user' %}" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title"> Dashboard </span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item start active open ">
+                <a href="{% url 'dev_app:invite_people_poll' %}" class="nav-link nav-toggle">
+                    <i class="icon-bar-chart"></i>
+                    <span class="title"> Create new Poll </span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item start ">
+                <a href="{% url 'dev_app:invite_people_conf' %}" class="nav-link nav-toggle">
+                    <i class="icon-bulb"></i>
+                    <span class="title"> Create new Conference </span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item start ">
+                <a href="{% url 'dev_app:create_group' %}" class="nav-link nav-toggle">
+                    <i class="icon-diamond"></i>
+                    <span class="title"> Create new Group </span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block title %} Poll | Planner App | CCCF | TIFR {% endblock %}
+
+{% block pagetitle %} Add new poll question  {% endblock %}
+
+{% block breadcrumb %}
+<li>
+    <a href="{% url 'dev_app:login_user' %}">Dashboard</a>
+    <i class="fa fa-circle"></i>
+</li>
+<li>
+    <span class="active">Poll</span>
+</li>
+{% endblock %}
+
+{% block content %}
+
+<form action="{% url 'dev_app:poll_options' %}" method="post" class="form-horizontal" name="acad" enctype="multipart/form-data" onSubmit="return validate()"  >
+{% csrf_token %}
+
+    <div class="portlet box green">
+        <div class="portlet-title">
+            <div class="caption"> 
+                Step 1: Poll Question
+            </div> 
+        </div>
+        <div class="portlet-body form">
+            <div class="form-body">
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Question <font color="red">*</font> </label>
+                        <div class="col-md-8">
+                            <input class="form-control" placeholder="Type the question" type="text" id="question" name="question" required  >
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3"> Type of answer choices <font color="red">*</font> </label>
+                        <div class="col-md-8">
+                        	<div class="radio-list row ">
+	                            <input type="radio" id="multi" name="ansc" value="multi" > Multiple answer choice(checkbox) 
+	                            <input type="radio" id="single" name="ansc" value="single"> Single answer choice(radio)  
+	                        </div>
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">No of options <font color="red">*</font> </label>
+                        <div class="col-md-2">
+                            <input class="form-control" placeholder="Eg.2" type="text" id="options" name="options" required onkeypress="return onlyNumbers(event,this);" >
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Enter answer choice options <font color="red">*</font> </label>
+                        {% include "dev_app/tag_file.html" %}
+                    </div>
+                </div> 
+
+                <div class="row" align="center" >
+                    <button type="submit" class="btn green" name="submit" id="submit2" value="submit" > Add question </button>
+                </div>
+            </div>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+</form>
+
+<script type="text/javascript">
+    
+// $(document).ready(function() {
+//   $(window).keydown(function(event){
+//     if(event.keyCode == 13) {
+//       event.preventDefault();
+//       return false;
+//     }
+//   });
+// });
+
+
+$(document).on("keypress", ":input:not(select)", function(event) {
+    if (event.keyCode == 13) {
+        event.preventDefault();
+    }
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

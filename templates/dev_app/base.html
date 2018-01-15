@@ -1,0 +1,386 @@
+<!DOCTYPE html> 
+{% load staticfiles %}
+<html lang="en">
+    <head>
+        <title>{% block title %} Planner App | CCCF | TIFR {% endblock %}  </title>
+        {% include "dev_app/header.html" %}
+    </head>
+
+    <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
+        <!-- BEGIN HEADER -->
+        <div class="page-header navbar navbar-fixed-top">
+            <!-- BEGIN HEADER INNER -->
+            <div class="page-header-inner ">
+                <!-- BEGIN LOGO -->
+                <div class="page-logo">
+                    <a href="http://www.tifr.res.in" align="center" > <h2> TIFR </h2> </a>
+                    <div class="menu-toggler sidebar-toggler"> </div>
+                        <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+                </div>
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+                
+                <!-- BEGIN PAGE TOP -->
+                <div class="page-top">
+                    <!-- BEGIN TOP NAVIGATION MENU -->
+                    <div class="top-menu">
+                        <ul class="nav navbar-nav pull-right">
+                            <li class="dropdown dropdown-user dropdown-dark">
+                                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                    Welcome, <span class="username username-hide-on-mobile"> {{username}} </span>
+                                    <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
+                                    <!-- <img alt="" class="img-circle" src="../../../static/dev_app/assets/layouts/layout4/img/avatar9.jpg" /> </a> -->
+                                    <!-- <img alt="" class="img-circle" src="{{image_path}}" /> {{last}} </a> -->
+
+                                    <!-- <div class="profile-userpic"> -->
+                                    {% if image_path %}
+                                    <img src="{{image_path}}" class="img-circle" alt=""> 
+                                    {% endif %}
+                                    <!-- </div> -->
+
+                                <!-- <ul class="dropdown-menu dropdown-menu-default"> -->
+                                    <!-- <li>
+                                        <a href="page_user_profile_1.html">
+                                            <i class="icon-user"></i> My Profile </a>
+                                    </li> -->
+                                    <!-- <li>
+                                        <a href="page_user_login_1.html">
+                                            <i class="icon-key"></i> Log Out </a>
+                                    </li> -->
+                                <!-- </ul> -->
+                            </li>
+                            <!-- END USER LOGIN DROPDOWN -->
+                            
+                        </ul>
+                    </div>
+                    <!-- END TOP NAVIGATION MENU -->
+                </div>
+                <!-- END PAGE TOP -->
+            </div>
+            <!-- END HEADER INNER -->
+        </div>
+        <!-- END HEADER -->
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN SIDEBAR -->
+             {% block sidebar %}
+            <div class="page-sidebar-wrapper">
+                <div class="page-sidebar navbar-collapse collapse">
+                    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start active open">
+                            <a href="{% url 'dev_app:login_user' %}" class="nav-link nav-toggle">
+                                <i class="icon-home"></i>
+                                <span class="title"> Dashboard </span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item start ">
+                            <a href="{% url 'dev_app:invite_people_poll' %}" class="nav-link nav-toggle">
+                                <i class="icon-bar-chart"></i>
+                                <span class="title"> Create new Poll </span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item start ">
+                            <a href="{% url 'dev_app:invite_people_conf' %}" class="nav-link nav-toggle">
+                                <i class="icon-bulb"></i>
+                                <span class="title"> Create new Meeting </span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item start ">
+                            <a href="{% url 'dev_app:create_group' %}" class="nav-link nav-toggle">
+                                <i class="icon-diamond"></i>
+                                <span class="title"> Create new Group </span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {% endblock %}
+                <!-- END SIDEBAR -->
+                        <!-- <li class="nav-item start ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-home"></i>
+                                <span class="title"> Dash </span>
+                                <span class="selected"></span>
+                                <span class="arrow open"></span>
+                            </a>
+
+                            <ul class="sub-menu">
+                                <li class="nav-item start active open">
+                                    <a href="index.html" class="nav-link ">
+                                        <i class="icon-bar-chart"></i>
+                                        <span class="title">Dashboard 1</span>
+                                        <span class="selected"></span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start ">
+                                    <a href="dashboard_2.html" class="nav-link ">
+                                        <i class="icon-bulb"></i>
+                                        <span class="title">Dashboard 2</span>
+                                        <span class="badge badge-success">1</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item start ">
+                                    <a href="dashboard_3.html" class="nav-link ">
+                                        <i class="icon-graph"></i>
+                                        <span class="title">Dashboard 3</span>
+                                        <span class="badge badge-danger">5</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="heading">
+                            <h3 class="uppercase">Features</h3>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="javascript:;" class="nav-link nav-toggle">
+                                <i class="icon-diamond"></i>
+                                <span class="title">UI Features</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="nav-item  ">
+                                    <a href="ui_metronic_grid.html" class="nav-link ">
+                                        <span class="title">Metronic Grid System</span>
+                                    </a>
+                                </li>
+                                
+                                <li class="nav-item  ">
+                                    <a href="ui_sweetalert.html" class="nav-link ">
+                                        <span class="title">Bootstrap Sweet Alerts</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="ui_icons.html" class="nav-link ">
+                                        <span class="title">Font Icons</span>
+                                    </a>
+                                </li>
+                        
+                                <li class="nav-item  ">
+                                    <a href="javascript:;" class="nav-link nav-toggle">
+                                        <span class="title">Page Progress Bar</span>
+                                        <span class="arrow"></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="nav-item ">
+                                            <a href="ui_page_progress_style_1.html" class="nav-link "> Flash </a>
+                                        </li>
+                                        <li class="nav-item ">
+                                            <a href="ui_page_progress_style_2.html" class="nav-link "> Big Counter </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                            </ul>
+                        </li> -->
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            {% autoescape on %}
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <!-- BEGIN PAGE HEAD-->
+                    <div class="page-head">
+                        <!-- BEGIN PAGE TITLE -->
+                        <div class="page-title">
+                            <h1> {% block pagetitle %} Dashboard  {% endblock %}
+                            </h1>
+                                <!-- <small>statistics, charts, recent events and reports</small> -->
+                        </div>
+                        <!-- END PAGE TITLE -->
+                    </div>
+                    <!-- END PAGE HEAD-->
+                    <!-- BEGIN PAGE BREADCRUMB -->
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <a href="">Home</a>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        {% block breadcrumb %}
+                        <li>
+                            <span class="active">Dashboard</span>
+                        </li>
+                        {% endblock %}
+                    </ul>
+                    <!-- END PAGE BREADCRUMB -->
+                    <!-- BEGIN PAGE BASE CONTENT -->
+                    {% block content %}
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="dashboard-stat2 bordered">
+                                <div class="display">
+                                    <div class="number">
+                                        <h3 class="font-green-sharp">
+                                            <span data-counter="counterup" data-value="7800">0</span>
+                                            <small class="font-green-sharp">$</small>
+                                        </h3>
+                                        <small>TOTAL PROFIT</small>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="icon-pie-chart"></i>
+                                    </div>
+                                </div>
+                                <div class="progress-info">
+                                    <div class="progress">
+                                        <span style="width: 76%;" class="progress-bar progress-bar-success green-sharp">
+                                            <span class="sr-only">76% progress</span>
+                                        </span>
+                                    </div>
+                                    <div class="status">
+                                        <div class="status-title"> progress </div>
+                                        <div class="status-number"> 76% </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="dashboard-stat2 bordered">
+                                <div class="display">
+                                    <div class="number">
+                                        <h3 class="font-red-haze">
+                                            <span data-counter="counterup" data-value="1349">0</span>
+                                        </h3>
+                                        <small>NEW FEEDBACKS</small>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="icon-like"></i>
+                                    </div>
+                                </div>
+                                <div class="progress-info">
+                                    <div class="progress">
+                                        <span style="width: 85%;" class="progress-bar progress-bar-success red-haze">
+                                            <span class="sr-only">85% change</span>
+                                        </span>
+                                    </div>
+                                    <div class="status">
+                                        <div class="status-title"> change </div>
+                                        <div class="status-number"> 85% </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="dashboard-stat2 bordered">
+                                <div class="display">
+                                    <div class="number">
+                                        <h3 class="font-blue-sharp">
+                                            <span data-counter="counterup" data-value="567"></span>
+                                        </h3>
+                                        <small>NEW ORDERS</small>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="icon-basket"></i>
+                                    </div>
+                                </div>
+                                <div class="progress-info">
+                                    <div class="progress">
+                                        <span style="width: 45%;" class="progress-bar progress-bar-success blue-sharp">
+                                            <span class="sr-only">45% grow</span>
+                                        </span>
+                                    </div>
+                                    <div class="status">
+                                        <div class="status-title"> grow </div>
+                                        <div class="status-number"> 45% </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="dashboard-stat2 bordered">
+                                <div class="display">
+                                    <div class="number">
+                                        <h3 class="font-purple-soft">
+                                            <span data-counter="counterup" data-value="276"></span>
+                                        </h3>
+                                        <small>NEW USERS</small>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="icon-user"></i>
+                                    </div>
+                                </div>
+                                <div class="progress-info">
+                                    <div class="progress">
+                                        <span style="width: 57%;" class="progress-bar progress-bar-success purple-soft">
+                                            <span class="sr-only">56% change</span>
+                                        </span>
+                                    </div>
+                                    <div class="status">
+                                        <div class="status-title"> change </div>
+                                        <div class="status-number"> 57% </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-12 col-sm-12">
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <span class="caption-subject bold uppercase font-dark">Revenue</span>
+                                        <span class="caption-helper">distance stats...</span>
+                                    </div>
+                                    <div class="actions">
+                                        <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                                            <i class="icon-cloud-upload"></i>
+                                        </a>
+                                        <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                                            <i class="icon-wrench"></i>
+                                        </a>
+                                        <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                                            <i class="icon-trash"></i>
+                                        </a>
+                                        <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="#"> </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div id="dashboard_amchart_1" class="CSSAnimationChart"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xs-12 col-sm-12">
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption ">
+                                        <span class="caption-subject font-dark bold uppercase">Finance</span>
+                                        <span class="caption-helper">distance stats...</span>
+                                    </div>
+                                    <div class="actions">
+                                        <a href="#" class="btn btn-circle green btn-outline btn-sm">
+                                            <i class="fa fa-pencil"></i> Export </a>
+                                        <a href="#" class="btn btn-circle green btn-outline btn-sm">
+                                            <i class="fa fa-print"></i> Print </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div id="dashboard_amchart_3" class="CSSAnimationChart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endblock %}
+                    <!-- END PAGE BASE CONTENT -->
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            {% endautoescape %}
+            <!-- END CONTENT -->
+            
+        </div>
+        <!-- END CONTAINER -->
+
+        {% include "dev_app/footer.html" %}
+
+        {% block end_attach %}
+        {% endblock %}
+    </body>
+
+</html>

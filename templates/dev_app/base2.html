@@ -1,0 +1,157 @@
+<!DOCTYPE html> 
+
+{% load staticfiles %}
+<html lang="en">
+    <head>
+        <title>{% block title %} Planner App | CCCF | TIFR {% endblock %}  </title>
+        {% include "dev_app/header2.html" %}
+    </head>
+
+    <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
+        <!-- BEGIN HEADER -->
+        <div class="page-header navbar navbar-fixed-top">
+            <!-- BEGIN HEADER INNER -->
+            <div class="page-header-inner ">
+                <!-- BEGIN LOGO -->
+                <div class="page-logo">
+                    <a href="http://www.tifr.res.in" align="center" > <h2> TIFR </h2> </a>
+                    <div class="menu-toggler sidebar-toggler"> </div>
+                        <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+                </div>
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+                
+                <!-- BEGIN PAGE TOP -->
+                <div class="page-top">
+                    <!-- BEGIN TOP NAVIGATION MENU -->
+                    <div class="top-menu">
+                        <ul class="nav navbar-nav pull-right">
+                            <li class="dropdown dropdown-user dropdown-dark">
+                                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                    Welcome, <span class="username username-hide-on-mobile"> {{username}} </span>
+                                    <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
+                                    <!-- <img alt="" class="img-circle" src="../../../static/dev_app/assets/layouts/layout4/img/avatar9.jpg" /> </a> -->
+                                    <!-- <img alt="" class="img-circle" src="{{image_path}}" /> {{last}} </a> -->
+
+                                    <!-- <div class="profile-userpic"> -->
+                                    <img src="{{image_path}}" class="img-circle" alt=""> 
+                                    <!-- </div> -->
+
+                                <!-- <ul class="dropdown-menu dropdown-menu-default"> -->
+                                    <!-- <li>
+                                        <a href="page_user_profile_1.html">
+                                            <i class="icon-user"></i> My Profile </a>
+                                    </li> -->
+                                    <!-- <li>
+                                        <a href="page_user_login_1.html">
+                                            <i class="icon-key"></i> Log Out </a>
+                                    </li> -->
+                                <!-- </ul> -->
+                            </li>
+                            <!-- END USER LOGIN DROPDOWN -->
+                            
+                        </ul>
+                    </div>
+                    <!-- END TOP NAVIGATION MENU -->
+                </div>
+                <!-- END PAGE TOP -->
+            </div>
+            <!-- END HEADER INNER -->
+        </div>
+        <!-- END HEADER -->
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN SIDEBAR -->
+             {% block sidebar %}
+            <div class="page-sidebar-wrapper">
+                <div class="page-sidebar navbar-collapse collapse">
+                    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                        <li class="nav-item start active open">
+                            <a href="{% url 'dev_app:login_user' %}" class="nav-link nav-toggle">
+                                <i class="icon-home"></i>
+                                <span class="title"> Dashboard </span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item start ">
+                            <a href="{% url 'dev_app:invite_people_poll' %}" class="nav-link nav-toggle">
+                                <i class="icon-bar-chart"></i>
+                                <span class="title"> Create new Poll </span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item start ">
+                            <a href="{% url 'dev_app:invite_people_conf' %}" class="nav-link nav-toggle">
+                                <i class="icon-bulb"></i>
+                                <span class="title"> Create new Meeting </span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item start ">
+                            <a href="{% url 'dev_app:create_group' %}" class="nav-link nav-toggle">
+                                <i class="icon-diamond"></i>
+                                <span class="title"> Create new Group </span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            {% endblock %}
+               
+            <!-- BEGIN CONTENT -->
+            {% autoescape on %}
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <!-- BEGIN PAGE HEAD-->
+                    <div class="page-head">
+                        <!-- BEGIN PAGE TITLE -->
+                        <div class="page-title">
+                            <h1> {% block pagetitle %} Dashboard  {% endblock %}
+                            </h1>
+                                <!-- <small>statistics, charts, recent events and reports</small> -->
+                        </div>
+                        <!-- END PAGE TITLE -->
+                    </div>
+                    <!-- END PAGE HEAD-->
+                    <!-- BEGIN PAGE BREADCRUMB -->
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <a href="">Home</a>
+                            <i class="fa fa-circle"></i>
+                        </li>
+                        {% block breadcrumb %}
+                        <li>
+                            <span class="active">Dashboard</span>
+                        </li>
+                        {% endblock %}
+                    </ul>
+                    <!-- END PAGE BREADCRUMB -->
+                    <!-- BEGIN PAGE BASE CONTENT -->
+                    {% block content %}
+                    
+
+
+                    {% endblock %}
+                    <!-- END PAGE BASE CONTENT -->
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            {% endautoescape %}
+            <!-- END CONTENT -->
+            
+        </div>
+        <!-- END CONTAINER -->
+
+        {% include "dev_app/footer2.html" %}
+
+        {% block end_attach %}
+        {% endblock %}
+    </body>
+
+</html>

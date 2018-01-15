@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from demo.models import Question
 from django.template import loader
 
+
 # def index(request):
 #     return HttpResponse("Hello, world. You're at the polls index.")
 
