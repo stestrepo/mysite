@@ -1,0 +1,17 @@
+import django
+q= Question(questionid=1,ques='where to w',choicecheck='multi',noofoptions=2,anschoice='one')
+q.save
+
+https://docs.djangoproject.com/en/1.11/ref/databases/#mysql-sql-mode 
+-- settings file-- database
+
+
+from django.db import connections
+cursor = connections['appadmin'].cursor()
+cursor.execute("SELECT surname FROM people1 WHERE telid = 789")
+cursor.execute("SELECT surname FROM people1 WHERE telid ="+telid)
+row=cursor.fetchone()
+ refernce url:https://docs.djangoproject.com/en/dev/topics/db/sql/#executing-custom-sql-directly
+
+
+

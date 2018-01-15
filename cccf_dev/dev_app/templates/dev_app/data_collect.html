@@ -1,0 +1,85 @@
+{% extends "dev_app/base.html" %}
+
+ 
+{% block sidebar %}
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+        <ul class="page-sidebar-menu  " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+            <li class="nav-item start ">
+                <a href="" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title"> Dashboard </span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block title %} Poll | Planner App | CCCF | TIFR {% endblock %}
+
+{% block pagetitle %} Polling   {% endblock %}
+
+{% block breadcrumb %}
+<li>
+    <span class="active">Poll</span>
+</li>
+{% endblock %}
+
+{% block content %}
+
+<form action="{% url 'dev_app:thankyou' %}" method="post" class="form-horizontal" name="acad" enctype="multipart/form-data" onSubmit="return validate()"  >
+{% csrf_token %}
+
+    <div class="portlet box green">
+        <div class="portlet-title">
+            <div class="caption"> 
+                Poll Question
+            </div> 
+        </div>
+        <div class="portlet-body form">
+            <div class="form-body">
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Poll Question </label>
+                        <div class="col-md-8">
+                            <input class="form-control" placeholder="Type the question" type="text" id="question" name="question" value="{{question_ask}}" readonly >
+                        </div>
+                    </div>
+                </div> 
+                <input class="form-control" type="hidden" id="questionid" name="questionid" value="{{questionid}}" >
+                <input class="form-control" type="hidden" id="token" name="token" value="{{token}}" >
+
+                <div class="row">
+                    <div class="form-group"> 
+                        <label class="control-label col-md-3"> Answer choices <font color="red">*</font> </label>
+                        <div class="col-md-8">
+                            <div class="radio-list row ">
+
+                                {% for a in question_ans %}
+                                    <!-- <input id="{{a}}" name="options_value" type="{{ques_ch}}"  value="{{a}}"  required >  {{ a }} -->
+                                    <input name="options_value" value="{{a}}" type="{{ques_ch}}" > {{a}}
+                                    <br>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="row" align="center" >
+                    <button type="submit" class="btn green" name="submit" id="submit2" value="submit" > Done </button>
+                </div>
+            </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</form>
+
+{% endblock %}

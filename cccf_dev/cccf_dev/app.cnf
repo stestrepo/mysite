@@ -1,0 +1,7 @@
+# app.cnf
+[client]
+database = web
+user = nbadmin
+password = 14_nbadmin
+host = www.tifr.res.in
+default-character-set = utf8
