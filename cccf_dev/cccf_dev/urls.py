@@ -19,7 +19,11 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
     url(r'^dev/', include('dev_app.urls',namespace='dev_app',app_name='dev_app')),
     url(r'^dj/dev/', include('dev_app.urls',namespace='dev_app',app_name='dev_app')),
+
+    url(r'^pre/', include('preprint.urls',namespace='preprint',app_name='preprint')),
+    url(r'^dj/pre/', include('preprint.urls',namespace='preprint',app_name='preprint')),
 
 ]

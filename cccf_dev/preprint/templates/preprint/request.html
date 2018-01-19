@@ -1,0 +1,169 @@
+{% extends "preprint/base2.html" %}  
+ 
+{% block sidebar %}
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+        <ul class="page-sidebar-menu  " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+            <li class="nav-item start ">
+                <a href="{% url 'preprint:login_user' %}" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title"> Dashboard </span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item start ">
+                <a href="{% url 'preprint:apply' pid='' %}" class="nav-link nav-toggle">
+                    <i class="icon-bulb"></i>
+                    <span class="title"> Request new preprint number </span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block title %} Preprint utility form | Preprint App | CCCF | TIFR {% endblock %}
+
+{% block pagetitle %} Request for a new preprint number  {% endblock %}
+
+{% block breadcrumb %}
+<li>
+    <a href="{% url 'preprint:login_user' %}">Dashboard</a>
+    <i class="fa fa-circle"></i>
+</li>
+<li>
+    <span class="active">Preprint request form</span>
+</li>
+{% endblock %}
+
+{% block content %}
+
+<form action="{% url 'preprint:login_user' %}" method="post" class="form-horizontal" name="acad" enctype="multipart/form-data" onSubmit="return validate()"  >
+{% csrf_token %}
+
+    <div class="portlet box green">
+        <div class="portlet-title">
+            <div class="caption"> 
+                Preprint number request form
+            </div> 
+        </div>
+        <div class="portlet-body form">
+            <div class="form-body">
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3"> Title <font color="red">*</font> </label>
+                        <div class="col-md-8">
+                            <input class="form-control" placeholder="Title of the paper" type="text" id="title" name="title" required  >
+                        </div>
+                    </div>
+                </div> 
+
+
+                <br>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3"> Associated authors <font color="red">*</font> </label>
+                        {% include "preprint/tag_file.html" %}
+                    </div>
+                </div> 
+
+
+                <br>
+                <br>
+                <!-- check the 1.181 code for the looped member increase -->
+                <!-- <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3"> Select the number of associated authors </label>
+                        <div class="col-md-8"> 
+                            <input class="form-control" placeholder="Arxiv number" type="text" id="arxiv" name="arxiv" >
+                        </div>
+                    </div>
+                </div>  -->
+
+
+
+                <br>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3"> Arxiv number </label>
+                        <div class="col-md-8">
+                            <input class="form-control" placeholder="Arxiv number" type="text" id="arxiv" name="arxiv" >
+                        </div>
+                    </div>
+                </div> 
+
+                <br>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3"> Journal DOI </label>
+                        <div class="col-md-8">
+                            <input class="form-control" placeholder="Journal DOI" type="text" id="doi" name="doi" >
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3"> Journal Name </label>
+                        <div class="col-md-8">
+                            <input class="form-control" placeholder="Journal Name" type="text" id="journal" name="journal" >
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3"> Volume </label>
+                        <div class="col-md-4">
+                            <input class="form-control col-md-4" placeholder="Volume" type="text" id="vol" name="vol" >
+                        </div>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3"> Year </label>
+                        <div class="col-md-4">
+                            <input class="form-control col-md-4" placeholder="Year" type="text" id="year" name="year"   >
+                        </div>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3"> Page number </label>
+                        <div class="col-md-4">
+                            <input class="form-control col-md-4" placeholder="Page number" type="text" id="pageno" name="pageno"  >
+                        </div>
+                    </div>
+                </div> 
+
+                <br>
+
+                <div class="row" align="center" >
+                    <button type="submit" class="btn green" name="submit" id="submit2" value="submit" > Done </button>
+                </div>
+            </div>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+</form>
+
+        {% endblock %}
+{% block end_attach %}
+
+<script type="text/javascript">
+$(document).on("keypress", ":input:not(select)", function(event) {
+    if (event.keyCode == 13) {
+        event.preventDefault();
+    }
+});
+</script>
+
+{% endblock %}

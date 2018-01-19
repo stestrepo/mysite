@@ -18,13 +18,13 @@
                     <span class="selected"></span>
                 </a>
             </li>
-            <li class="nav-item start ">
+            <!-- <li class="nav-item start ">
                 <a href="{% url 'dev_app:invite_people_conf' %}" class="nav-link nav-toggle">
                     <i class="icon-bulb"></i>
                     <span class="title"> Create new Meeting </span>
                     <span class="selected"></span>
                 </a>
-            </li>
+            </li> -->
             <li class="nav-item start  ">
                 <a href="{% url 'dev_app:create_group' %}" class="nav-link nav-toggle">
                     <i class="icon-diamond"></i>
@@ -78,11 +78,11 @@
                             <!-- <input class="form-control" placeholder="Type group name" type="text" id="grp_name" name="grp_name" required  > -->
 
                             <select id="grp_name1" name="grp_name1" class="form-control select2 select2-hidden-accessible" tabindex="-1" aria-hidden="true" placeholder="Type group name">
-                                <option value="8">Type group name to search </option>
+                                <option value="0">Type group name to search </option>
                                 {% for k in group_obj %}
                                     {% for c,d in k.iteritems %}
-                                        <option value="8">{{d}}</option>
-                                        <!-- <option value="{{c}}">{{d}}</option> -->
+                                        <!-- <option value="8">{{d}}</option> -->
+                                        <option value="{{c}}">{{d}}</option>
                                     {% endfor %}
                                 {% endfor %}
                             </select>

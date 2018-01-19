@@ -1,0 +1,33 @@
+
+SELECT 
+    *
+FROM
+    visitor_details
+         JOIN
+    visitor_approve 
+WHERE
+visitor_details.visitorid != visitor_approve.visitorid
+
+
+SELECT 
+    *
+FROM
+    visitor_details
+        LEFT JOIN
+    visitor_approve 
+ON
+visitor_details.visitorid != visitor_approve.visitorid
+
+
+
+SELECT 
+    *
+FROM
+    visitor_details 
+WHERE
+visitor_details.visitorid NOT IN 
+(
+SELECT visitorid FROM 
+    visitor_approve
+)
+

@@ -1,0 +1,76 @@
+{% extends "preprint/base.html" %}
+{% block content %}
+
+<link href="../../../static/dev_app/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+<link href="../../../static/dev_app/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+
+<div class="portlet light">
+<div class="portlet-body">
+	<table class="table table-bordered table-striped table-condensed table-hover order-column " id="sample_2_0" >
+	    <thead>
+	      <tr>
+	        <th> Title  </th>
+	        <th> Author  </th>
+	        <th> Archive Number  </th>
+	        <th> Journal Number </th>
+	      </tr>
+	    </thead>
+		<br>
+	    <tbody>
+
+	    	<!-- {% for k in utility_bank %}
+	    	<tr>
+                {% for c,d in k.iteritems %}
+                    <td>  {{c}} : {{d}}   </td>
+                {% endfor %}
+	    	</tr>
+			{% endfor %} -->
+
+			{% for k in utility_list %}
+	    	<tr>
+                <td> {{ k.title }}</td>
+                <td> {{ k.asso_author }}</td>
+                <td> {{ k.arxiv }}</td>
+                <td> {{ k.jour_name }}</td>
+	    	</tr>
+			{% endfor %}
+
+
+
+
+	    	<!-- {% for k in u_bank %}
+	    	<tr>
+	    		{{k}}
+	    		{% for c,d in k.iteritems %}
+
+                     {{c}} : {{d}} 
+
+				{% endfor %}
+	    	</tr>
+			{% endfor %} -->
+
+
+	    </tbody>
+	</table>
+</div>
+</div>
+
+{% endblock %}
+
+{% block end_attach %}
+
+<script src="../../../static/dev_app/assets/global/scripts/datatable.js" type="text/javascript"></script>
+<script src="../../../static/dev_app/assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+<script src="../../../static/dev_app/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
+<script src="../../../static/dev_app/assets/pages/scripts/table-datatables-managed.min.js" type="text/javascript"></script>     
+<link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	$('#sample_2_0').DataTable( {
+		// scroller:    true,
+		scrollY: true,
+		scrollX: false,
+	} );
+</script>
+{% endblock %}

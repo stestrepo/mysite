@@ -61,7 +61,7 @@
         <link href="../../../static/dev_app/assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
         <link href="../../../static/dev_app/assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
 
-<form action="{% url 'dev_app:poll_options' %}" method="post" class="form-horizontal" name="acad" enctype="multipart/form-data" onSubmit="return validate()"  >
+<form action="{% url 'dev_app:conference_options' %}" method="post" class="form-horizontal" name="acad" enctype="multipart/form-data" onSubmit="return validate()"  >
 {% csrf_token %}
 
     <div class="portlet box yellow">
@@ -109,22 +109,17 @@
                                 <div class="form-group"> 
                                     <label class="control-label col-md-2"> From </label>
                                     <div class="col-md-4">
-                                        <div class="input-group input-medium date date-picker" data-date-format="dd/mm/yyyy" data-date-start-date="-60d" >
-                                            <input class="form-control" namtype="text" name="lfrom" id="lfrom" required onChange="goat1();" >
-                                            <span class="input-group-btn">
-                                                <button class="btn default" type="button">
-                                                    <i class="fa fa-calendar"></i>
-                                                </button>
-                                            </span>
+                                        <div class="form-group" class="input-group input-medium date date-picker" data-date-format="dd/mm/yyyy" data-date-start-date="-60d" >
+                                            <div class='input-group date' id='datetimepicker1'>
+                                                <input type='text' class="form-control" />
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3">
-                                        <div class="input-icon">
-                                            <i class="fa fa-clock-o"></i>
-                                            <input class="form-control timepicker timepicker-default" type="text" name="time_lfrom" id="time_lfrom" required > 
-                                        </div>
-                                    </div>
+                                   
 
                                 </div>
 
@@ -135,22 +130,20 @@
                             <div class="row"> 
                                 <div class="form-group">
                                     <label class="control-label col-md-2"> To </label>
+                                    
                                     <div class="col-md-4">
-                                        <div class="input-group input-medium date date-picker" data-date-format="dd/mm/yyyy" data-date-start-date="-60d" >
-                                            <input class="form-control" type="text" name="lto" id="lto" required onChange="goat2();" >
-                                            <span class="input-group-btn">
-                                                <button class="btn default" type="button">
-                                                    <i class="fa fa-calendar"></i>
-                                                </button>
-                                            </span>
+                                        <div class="form-group" class="input-group input-medium date date-picker" data-date-format="dd/mm/yyyy" data-date-start-date="-60d" >
+                                            <div class='input-group date' id='datetimepicker2'>
+                                                <input type='text' class="form-control" />
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3">
-                                        <div class="input-icon">
-                                            <i class="fa fa-clock-o"></i>
-                                            <input class="form-control timepicker timepicker-default" type="text" name="time_lto" id="time_lto" required > </div>
-                                    </div>
+
+                                    
                                 </div>
 
 
@@ -162,6 +155,11 @@
                 </div> 
 
 
+                <div class="row">
+                    <div class="form-group">
+
+                    </div>
+                </div>
 
 
 
@@ -210,7 +208,14 @@
 
 {% block end_attach %}
 
-    
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+        $('#datetimepicker2').datetimepicker();
+    });
+</script>
+
+
 <script type="text/javascript">
     $(document).on("keypress", ":input:not(select)", function(event) {
         if (event.keyCode == 13) {

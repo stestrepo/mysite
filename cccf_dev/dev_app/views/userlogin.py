@@ -93,13 +93,14 @@ def poll_options(request):
     question = request.POST.get('question')
     tag_name = request.POST.getlist('tag_name')
     ansc = request.POST.get('ansc')
-    options = request.POST.get('options')
+    # options = request.POST.get('options')
     further = request.POST.get('further')
     # print request.POST.getlist('tag_name')
     # for x in tag_name:
     #     print x
     if request.method == 'POST':
-        poll_in = Question(ques=question,choicecheck=ansc,noofoptions=options,anschoice=tag_name)
+        poll_in = Question(ques=question,choicecheck=ansc,anschoice=tag_name)
+        # poll_in = Question(ques=question,choicecheck=ansc,noofoptions=options,anschoice=tag_name)
         poll_in.save()
 
     poll_max= Question.objects.last()
@@ -203,7 +204,7 @@ def poll_mail(request):
 
     usr_mail_token = 0
 
-    if grp_name != 'none' :
+    if (grp_name != '0') :
         # print grp_name,type(grp_name)
         get_grp_tg = Group.objects.get(id=grp_name)
         grp_people = get_grp_tg.grp_email
@@ -339,3 +340,10 @@ def thankyou(request):
     return HttpResponse(template.render(context, request))    
 
 
+
+def conference_options(request):
+
+    template = loader.get_template('dev_app/thankyou.html')
+    context = { }
+
+    return HttpResponse(template.render(context, request))    

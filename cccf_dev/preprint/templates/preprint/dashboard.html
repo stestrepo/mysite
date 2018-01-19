@@ -1,0 +1,104 @@
+
+{% extends "preprint/base.html" %}
+ 
+{% block title %} Dashboard | Planner App | CCCF | TIFR {% endblock %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2 bordered">
+            <a href="{% url 'preprint:apply' pid='' %}">
+            <div class="display">
+                <div class="number">
+                    <h4 class="font-green-sharp">
+                        REQUEST PREPRINT
+                    </h4>
+                    <small>&nbsp;</small>
+                </div>
+                <div class="icon">
+                    <i class="icon-pie-chart"></i>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2 bordered">
+            <a href="{% url 'preprint:pending_fetch' %}">
+            <div class="display">
+                <div class="number">
+                    <h4 class="font-green-sharp">
+                        LIST OF PREPRINT
+                    </h4>
+                    <small>&nbsp;</small>
+                </div>
+                <div class="icon">
+                    <i class="icon-pie-chart"></i>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2 bordered">
+            <a href="">
+            <!-- <a href="{% url 'preprint:pending_fetch' %}"> -->
+            <div class="display">
+                <div class="number">
+                    <h4 class="font-green-sharp">
+                        ADMIN REVIEW
+                    </h4>
+                    <small>&nbsp;</small>
+                </div>
+                <div class="icon">
+                    <i class="icon-pie-chart"></i>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div>
+    
+    <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2 bordered">
+            <a href="{% url 'preprint:paper_fetch' %}">
+            <div class="display">
+                <div class="number">
+                    <h4 class="font-blue-sharp">
+                        PUBLISHED PAPER
+                    </h4>
+                    <small>&nbsp;</small>
+                </div>
+                <div class="icon">
+                    <i class="icon-basket"></i>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div> -->
+
+    <!-- <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat2 bordered">
+            <a href="{% url 'preprint:report_fetch' %}">
+            <div class="display">
+                <div class="number">
+                    <h4 class="font-purple-soft">
+                    	REPORT PREPRINT
+                    </h4>
+                    <small>&nbsp;</small>
+                </div>
+                <div class="icon">
+                    <i class="icon-user"></i>
+                </div>
+            </div>
+            </a>
+        </div>
+    </div> -->
+
+
+</div>
+
+{% endblock %}

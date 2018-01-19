@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
-# import datetime
+import datetime
 from django.utils.encoding import python_2_unicode_compatible
 # Create your models here.
 
@@ -14,7 +14,7 @@ class Question(models.Model):
 
     ques = models.CharField(max_length=250)
     choicecheck = models.CharField(default='null',choices=choice, max_length=10 )
-    noofoptions = models.IntegerField(default=0)
+    # noofoptions = models.IntegerField(default=0)
     anschoice = models.TextField(default='null')
     # anschoice = models.ManyToManyField('self',blank='true',default='null')
     # anschoice = models.TypedMultipleChoiceField(default='null')
@@ -51,14 +51,14 @@ class mail_sent_log(models.Model):
     telid = models.CharField(max_length=100,default='null') #telid of user who mail is sent
     questionid = models.CharField(max_length=100,default='null') #questionid of the poll
     usr_mail_token = models.TextField(default='null')        
-    # mailsentat = models.DateTimeField(auto_now=True)
+    mailsentat = models.DateTimeField(auto_now=True)
 
 
 class answer_log(models.Model):
     id_mail_sent_log = models.CharField(max_length=100,default='null',unique=True) #id belonging to mail_sent_log
     questionid = models.CharField(max_length=100,default='null') #questionid of the poll
     answerkey = models.TextField(default='null') #individual answer key
-    # answerat = models.DateTimeField(auto_now=True)
+    answerat = models.DateTimeField(auto_now=True)
     
 
 
@@ -68,6 +68,8 @@ class Conference(models.Model):
     location = models.CharField(max_length=500)     
     note = models.TextField(max_length=500)     
     note2 = models.TextField(max_length=500)     
+    date_from = models.DateTimeField(auto_now=False,blank=True, null=True)
+    date_to = models.DateTimeField(auto_now=False,blank=True, null=True)
     # date_from = models.DateField()
     # date_to = models.DateField()
     # time_from = models.TimeField()

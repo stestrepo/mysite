@@ -1,0 +1,122 @@
+{% extends "preprint/base.html" %}
+ 
+{% block sidebar %}
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+        <ul class="page-sidebar-menu  " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+            <li class="nav-item start ">
+                <a href="{% url 'preprint:login_user' %}" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title"> Dashboard </span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="nav-item start ">
+                <a href="{% url 'preprint:apply' pid='' %}" class="nav-link nav-toggle">
+                    <i class="icon-bulb"></i>
+                    <span class="title"> Request new preprint number </span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            
+
+            
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block title %} Poll | Planner App | CCCF | TIFR {% endblock %}
+
+{% block pagetitle %} Add new poll question  {% endblock %}
+
+{% block breadcrumb %}
+<li>
+    <a href="{% url 'preprint:login_user' %}">Dashboard</a>
+    <i class="fa fa-circle"></i>
+</li>
+<li>
+    <span class="active">Poll</span>
+</li>
+{% endblock %}
+
+{% block content %}
+
+<form action="{% url 'preprint:login_user' %}" method="post" class="form-horizontal" name="acad" enctype="multipart/form-data" onSubmit="return validate()"  >
+{% csrf_token %}
+
+    <div class="portlet box green">
+        <div class="portlet-title">
+            <div class="caption"> 
+                Preprint number request form
+            </div> 
+        </div>
+        <div class="portlet-body form">
+            <div class="form-body">
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3"> Title <font color="red">*</font> </label>
+                        <div class="col-md-8">
+                            <input class="form-control" placeholder="Title of the paper" type="text" id="title" name="title" required  >
+                        </div>
+                    </div>
+                </div> 
+
+<!--                 <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3"> Type of answer choices <font color="red">*</font> </label>
+                        <div class="col-md-8">
+                        	<div class="radio-list row ">
+	                            <input type="radio" id="multi" name="ansc" value="multi" > Multiple answer choice(checkbox) 
+	                            <input type="radio" id="single" name="ansc" value="single"> Single answer choice(radio)  
+	                        </div>
+                        </div>
+                    </div>
+                </div> 
+ -->
+
+
+                <br>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">Associated authors <font color="red">*</font> </label>
+                        {% include "preprint/tag_file.html" %}
+                    </div>
+                </div> 
+                <br>
+                <div class="row">
+                    <div class="form-group">
+                        <label class="control-label col-md-3"> Further Action Options <font color="red">*</font> </label>
+                        <div class="col-md-8">
+                            <div class="radio-list row ">
+                                <input type="radio" id="mail" name="further" value="mail" > Send mails for poll opinion
+                                <input type="radio" id="add" name="further" value="add"> Add question 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" align="center" >
+                    <button type="submit" class="btn green" name="submit" id="submit2" value="submit" > Done </button>
+                </div>
+            </div>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+</form>
+
+<script type="text/javascript">
+$(document).on("keypress", ":input:not(select)", function(event) {
+    if (event.keyCode == 13) {
+        event.preventDefault();
+    }
+});
+</script>
+
+{% endblock %}

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dev_app.apps.DevAppConfig',
+    'preprint.apps.PreprintConfig',
 
 ]
 
@@ -165,3 +166,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+# APPEND_SLASH=False

@@ -34,6 +34,7 @@ urlpatterns = [
 
 
     url(r'^conference', views.conference.conference_fetch , name='conference_fetch' ),
+    url(r'^conference_options', views.userlogin.conference_options , name='conference_options'),
 
 
     url(r'^group', views.group.group_fetch , name='group_fetch' ),  
